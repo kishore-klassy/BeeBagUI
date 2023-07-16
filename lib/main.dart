@@ -5,121 +5,329 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
+  const MyHomePage({Key? key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _selectedIndex = 0;
 
-  void _incrementCounter() {
+  void _onItemTapped(int index) {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      _selectedIndex = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Container(
+              color: Colors.amber[50],
+              child: Column(children: [
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                        height: 150,
+                        child: Image.asset(
+                          'assets/images/man.png',
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'John Doe',
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.w700),
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 5, horizontal: 10),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    color: Colors.amber[600]),
+                                child: Row(
+                                  children: [
+                                    Icon(Icons.diamond),
+                                    Text(
+                                      '2,058',
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w300),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 5, horizontal: 10),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    color: Colors.amber[600]),
+                                child: Row(
+                                  children: [
+                                    Icon(Icons.shopping_bag_rounded),
+                                    Text(
+                                      '124',
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w300),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 40, right: 20),
+                        child: Icon(Icons.edit_document),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 20,
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                    decoration: BoxDecoration(
+                      color: Colors.amber[600],
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'My Vouchers',
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.w700),
+                        ),
+                        Container(
+                          color: Colors.white,
+                          height: 60,
+                          alignment: Alignment.centerRight,
+                          padding:
+                              EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                          child: Container(
+                            child: Image.asset('assets/images/gift.png'),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 20,
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                    decoration: BoxDecoration(
+                      color: Colors.amber[600],
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'How Does BeeBag Work?',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w700),
+                        ),
+                        Container(
+                          color: Colors.white,
+                          height: 60,
+                          alignment: Alignment.centerRight,
+                          padding:
+                              EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                          child: Container(
+                            child: Image.asset('assets/images/gift.png'),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'Activities',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    fontSize: 20,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+                
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.amber[100],
+                    border: Border.all(
+                      color: Color.fromARGB(31, 100, 103, 103),
+                      style: BorderStyle.solid,
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        leading: Icon(
+                          Icons.store_mall_directory_rounded,
+                          color: Colors.black,
+                        ),
+                        title: Text('Last Visited'),
+                        trailing: Icon(Icons.navigate_next_rounded),
+                      ),
+                      Divider(
+                        thickness: 1,
+                        color: Colors.grey[300],
+                        indent: 20,
+                        endIndent: 20,
+                      ),
+                      ListTile(
+                        leading: Icon(
+                          Icons.store_mall_directory_rounded,
+                          color: Colors.black,
+                        ),
+                        title: Text('Bee Point History'),
+                        trailing: Icon(Icons.navigate_next_rounded),
+                      ),
+                      Divider(
+                        thickness: 1,
+                        color: Colors.grey[300],
+                        indent: 20,
+                        endIndent: 20,
+                      ),
+                      ListTile(
+                        
+                        leading: Icon(
+                          Icons.store_mall_directory_rounded,
+                          color: Colors.black,
+                        ),
+                        title: Text('Voucher History'),
+                        trailing: Icon(Icons.navigate_next_rounded),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'Others',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    fontSize: 20,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.amber[100],
+                    border: Border.all(
+                      color: Color.fromARGB(31, 100, 103, 103),
+                      style: BorderStyle.solid,
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        leading: Icon(
+                          Icons.store_mall_directory_rounded,
+                          color: Colors.black,
+                        ),
+                        title: Text('Feed Back'),
+                        trailing: Icon(Icons.navigate_next_rounded),
+                      ),
+                      Divider(
+                        thickness: 1,
+                        color: Colors.grey[300],
+                        indent: 20,
+                        endIndent: 20,
+                      ),
+                      ListTile(
+                        leading: Icon(
+                          Icons.store_mall_directory_rounded,
+                          color: Colors.black,
+                        ),
+                        title: Text('Log Out'),
+                        trailing: Icon(Icons.navigate_next_rounded),
+                      ),
+                    ],
+                  ),
+                ),
+                BottomNavigationBar(
+                  type: BottomNavigationBarType.fixed,
+                  currentIndex: _selectedIndex,
+                  onTap: _onItemTapped,
+                  selectedItemColor: Colors.amber,
+                  unselectedItemColor: Colors.grey,
+                  selectedIconTheme: IconThemeData(size: 50,grade: 34,),
+                  items: const <BottomNavigationBarItem>[
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.home),
+                      label: 'Home',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.card_giftcard),
+                      label: 'Rewards',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.qr_code),
+                      label: 'Scan',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.timeline),
+                      label: 'Activity',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.account_circle),
+                      label: 'Account',
+                    ),
+                  ],
+                )
+              ]),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
