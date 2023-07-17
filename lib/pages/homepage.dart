@@ -9,281 +9,315 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedIndex = 0;
+
+    Color pumpkin = Color(0xFFFC8019);
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Container(
+                color: Colors.amber[10],
+                child: Column(children: [
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                          height: 150,
+                          child: Image.asset(
+                            'assets/images/man.png',
+                          ),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'John Doe',
+                              style: TextStyle(
+                                  fontSize: 25, fontWeight: FontWeight.w700),
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      color: Colors.amber[600]),
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.diamond),
+                                      Text(
+                                        '2,058',
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w300),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      color: Colors.amber[600]),
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.shopping_bag_rounded),
+                                      Text(
+                                        '124',
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w300),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                        IconButton(
+                          padding: EdgeInsets.only(left: 30),
+                          icon: Icon(Icons.edit_document),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EditProfile()));
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 20,
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                      decoration: BoxDecoration(
+                        color: pumpkin,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'My Vouchers',
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.w700),
+                          ),
+                          Container(
+                            color: Colors.white,
+                            height: 60,
+                            alignment: Alignment.centerRight,
+                            padding:
+                                EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                            child: Container(
+                              child: Image.asset('assets/images/gift.png'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 20,
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                      decoration: BoxDecoration(
+                        color: pumpkin,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'How Does BeeBag Work?',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.w700),
+                          ),
+                          Container(
+                            color: Colors.white,
+                            height: 60,
+                            alignment: Alignment.centerRight,
+                            padding:
+                                EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                            child: Container(
+                              child: Image.asset('assets/images/gift.png'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    'Activities',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                      fontSize: 20,
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.amber[100],
+                      border: Border.all(
+                        color: Color.fromARGB(31, 100, 103, 103),
+                        style: BorderStyle.solid,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        ListTile(
+                           dense: true,
+                          leading: Icon(
+                            Icons.store_mall_directory_rounded,
+                            color: Colors.black,
+                          ),
+                          title: Text('Last Visited',style: TextStyle(fontSize: 16),),
+                          trailing: Icon(Icons.navigate_next_rounded),
+                        ),
+                        Divider(
+                          thickness: 1,
+                          color: Colors.grey[300],
+                          indent: 20,
+                          endIndent: 20,
+                        ),
+                        ListTile(
+                           dense: true,
+                          leading: Icon(  
+                            Icons.store_mall_directory_rounded,
+                            color: Colors.black,
+                          ),
+                          title: Text('Bee Point History',style: TextStyle(fontSize: 16),),
+                          trailing: Icon(Icons.navigate_next_rounded),
+                        ),
+                        Divider(
+                          thickness: 1,
+                          color: Colors.grey[300],
+                          indent: 20,
+                          endIndent: 20,
+                        ),
+                        ListTile(
+                          dense: true,
+                          leading: Icon(
+                            Icons.store_mall_directory_rounded,
+                            color: Colors.black,
+                          ),
+                          title: Text('Voucher History',style: TextStyle(fontSize: 16),),
+                          trailing: Icon(Icons.navigate_next_rounded),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Positioned(
+                    left: 50,
+                    child: Text(
+                      'Others',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontSize: 20,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.amber[100],
+                      border: Border.all(
+                        color: Color.fromARGB(31, 100, 103, 103),
+                        style: BorderStyle.solid,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          leading: Icon(
+                            Icons.store_mall_directory_rounded,
+                            color: Colors.black,
+                          ),
+                          title: Text('Feed Back',style: TextStyle(fontSize: 16),),
+                          trailing: Icon(Icons.navigate_next_rounded),
+                        ),
+                        Divider(
+                          thickness: 1,
+                          color: Colors.grey[300],
+                          indent: 20,
+                          endIndent: 20,
+                        ),
+                        ListTile(
+                          leading: Icon(
+                            Icons.store_mall_directory_rounded,
+                            color: Colors.black,
+                          ),
+                          title: Text('Log Out',style: TextStyle(fontSize: 16),),
+                          trailing: Icon(Icons.navigate_next_rounded),
+                        ),
+                      ],
+                    ),
+                  ),
+                 BottomNavigator()
+                ]),
+              ),
+            
+            ),
+          ),
+        ),
+        
+      ),
+    );
+  }
+
+  
+}
+
+class BottomNavigator extends StatefulWidget {
+  const BottomNavigator({super.key});
+  
+  @override
+  State<BottomNavigator> createState() => _BottomNavigatorState();
+}
+
+class _BottomNavigatorState extends State<BottomNavigator> {
+    int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: Container(
-              color: Colors.amber[50],
-              child: Column(children: [
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                        height: 150,
-                        child: Image.asset(
-                          'assets/images/man.png',
-                        ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'John Doe',
-                            style: TextStyle(
-                                fontSize: 25, fontWeight: FontWeight.w700),
-                          ),
-                          Row(
-                            children: [
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 5, horizontal: 10),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    color: Colors.amber[600]),
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.diamond),
-                                    Text(
-                                      '2,058',
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w300),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 5, horizontal: 10),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    color: Colors.amber[600]),
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.shopping_bag_rounded),
-                                    Text(
-                                      '124',
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w300),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                      IconButton(
-                        padding: EdgeInsets.only(left: 30),
-                        icon: Icon(Icons.edit_document),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => EditProfile()));
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: 20,
-                  ),
-                  child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.amber[300],
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'My Vouchers',
-                          style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.w700),
-                        ),
-                        Container(
-                          color: Colors.white,
-                          height: 60,
-                          alignment: Alignment.centerRight,
-                          padding:
-                              EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                          child: Container(
-                            child: Image.asset('assets/images/gift.png'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: 20,
-                  ),
-                  child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.amber[300],
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'How Does BeeBag Work?',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w700),
-                        ),
-                        Container(
-                          color: Colors.white,
-                          height: 60,
-                          alignment: Alignment.centerRight,
-                          padding:
-                              EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                          child: Container(
-                            child: Image.asset('assets/images/gift.png'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  'Activities',
-                  textAlign: TextAlign.start,
-                  style: TextStyle(
-                    fontSize: 20,
-                    letterSpacing: 1,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.amber[100],
-                    border: Border.all(
-                      color: Color.fromARGB(31, 100, 103, 103),
-                      style: BorderStyle.solid,
-                    ),
-                  ),
-                  child: Column(
-                    children: [
-                      ListTile(
-                        leading: Icon(
-                          Icons.store_mall_directory_rounded,
-                          color: Colors.black,
-                        ),
-                        title: Text('Last Visited'),
-                        trailing: Icon(Icons.navigate_next_rounded),
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey[300],
-                        indent: 20,
-                        endIndent: 20,
-                      ),
-                      ListTile(
-                        leading: Icon(
-                          Icons.store_mall_directory_rounded,
-                          color: Colors.black,
-                        ),
-                        title: Text('Bee Point History'),
-                        trailing: Icon(Icons.navigate_next_rounded),
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey[300],
-                        indent: 20,
-                        endIndent: 20,
-                      ),
-                      ListTile(
-                        leading: Icon(
-                          Icons.store_mall_directory_rounded,
-                          color: Colors.black,
-                        ),
-                        title: Text('Voucher History'),
-                        trailing: Icon(Icons.navigate_next_rounded),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  'Others',
-                  textAlign: TextAlign.start,
-                  style: TextStyle(
-                    fontSize: 20,
-                    letterSpacing: 1,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.amber[100],
-                    border: Border.all(
-                      color: Color.fromARGB(31, 100, 103, 103),
-                      style: BorderStyle.solid,
-                    ),
-                  ),
-                  child: Column(
-                    children: [
-                      ListTile(
-                        leading: Icon(
-                          Icons.store_mall_directory_rounded,
-                          color: Colors.black,
-                        ),
-                        title: Text('Feed Back'),
-                        trailing: Icon(Icons.navigate_next_rounded),
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Colors.grey[300],
-                        indent: 20,
-                        endIndent: 20,
-                      ),
-                      ListTile(
-                        leading: Icon(
-                          Icons.store_mall_directory_rounded,
-                          color: Colors.black,
-                        ),
-                        title: Text('Log Out'),
-                        trailing: Icon(Icons.navigate_next_rounded),
-                      ),
-                    ],
-                  ),
-                ),
-                BottomNavigationBar(
+    return BottomNavigationBar(
                   type: BottomNavigationBarType.fixed,
                   currentIndex: _selectedIndex,
                   onTap: _onItemTapped,
@@ -315,12 +349,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       label: 'Account',
                     ),
                   ],
-                )
-              ]),
-            ),
-          ),
-        ),
-      ),
-    );
+                );
   }
 }
+
+
