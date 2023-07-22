@@ -1,4 +1,6 @@
+import 'package:beebag/components/bottom_navbar.dart';
 import 'package:beebag/pages/edit_profile.dart';
+import 'package:beebag/pages/reward_page.dart';
 import 'package:beebag/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,18 +12,26 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-    Color pumpkin = Color(0xFFFC8019);
+    var _selectedIndex = 0 ;
+    Color pumpkin = Color(0xFFFC8019); 
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+           bottomNavigationBar: BottomNavBar(
+        onItemSelected: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+        selectedIndex: _selectedIndex,
+      ),
         floatingActionButton: FloatingActionButton(onPressed:  () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => SignUpPage()));
+                                      builder: (context) => RewardPage()));
                             },),
         body: Stack(
           children:[ SingleChildScrollView(
@@ -36,83 +46,81 @@ class _MyHomePageState extends State<MyHomePage> {
                     
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            padding:
-                                EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                            height: 150,
-                            child: Image.asset(
-                              'assets/images/man.png',
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                          height: 150,
+                          child: Image.asset(
+                            'assets/images/man.png',
+                          ),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'John Doe',
+                              style: TextStyle(
+                                  fontSize: 25, fontWeight: FontWeight.w700),
                             ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'John Doe',
-                                style: TextStyle(
-                                    fontSize: 25, fontWeight: FontWeight.w700),
-                              ),
-                              Row(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 5, horizontal: 10),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(12),
-                                        color: Colors.amber[600]),
-                                    child: Row(
-                                      children: [
-                                        Icon(Icons.diamond),
-                                        Text(
-                                          '2,058',
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w300),
-                                        )
-                                      ],
-                                    ),
+                            Row(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      color: Colors.amber[600]),
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.diamond),
+                                      Text(
+                                        '2,058',
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w300),
+                                      )
+                                    ],
                                   ),
-                                  SizedBox(
-                                    width: 10,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      color: Colors.amber[600]),
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.shopping_bag_rounded),
+                                      Text(
+                                        '124',
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w300),
+                                      )
+                                    ],
                                   ),
-                                  Container(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 5, horizontal: 10),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(12),
-                                        color: Colors.amber[600]),
-                                    child: Row(
-                                      children: [
-                                        Icon(Icons.shopping_bag_rounded),
-                                        Text(
-                                          '124',
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w300),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                          IconButton(
-                            padding: EdgeInsets.only(left: 30),
-                            icon: Icon(Icons.edit_document),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => EditProfile()));
-                            },
-                          ),
-                        ],
-                      ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                        IconButton(
+                          padding: EdgeInsets.only(left: 30),
+                          icon: Icon(Icons.edit_document),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EditProfile()));
+                          },
+                        ),
+                      ],
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
@@ -309,9 +317,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: BottomNavigator())
+     
         ]),
         
       ),
@@ -321,57 +327,60 @@ class _MyHomePageState extends State<MyHomePage> {
   
 }
 
-class BottomNavigator extends StatefulWidget {
-  const BottomNavigator({super.key});
-  
-  @override
-  State<BottomNavigator> createState() => _BottomNavigatorState();
-}
 
-class _BottomNavigatorState extends State<BottomNavigator> {
-    int _selectedIndex = 0;
-    Color pumpkin = Color(0xFFFC8019);
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-                  type: BottomNavigationBarType.fixed,
-                  currentIndex: _selectedIndex,
-                  onTap: _onItemTapped,
-                  selectedItemColor:pumpkin,
-                  unselectedItemColor: Colors.grey,
-                  selectedIconTheme: IconThemeData(
-                    size: 50,
-                    grade: 34,
-                  ),
-                  items: const <BottomNavigationBarItem>[
-                    BottomNavigationBarItem(
-                      icon: Icon(Icons.home),
-                      label: 'Home',
-                    ),
-                    BottomNavigationBarItem(
-                      icon: Icon(Icons.card_giftcard),
-                      label: 'Rewards',
-                    ),
-                    BottomNavigationBarItem(
-                      icon: Icon(Icons.qr_code),
-                      label: 'Scan',
-                    ),
-                    BottomNavigationBarItem(
-                      icon: Icon(Icons.timeline),
-                      label: 'Activity',
-                    ),
-                    BottomNavigationBarItem(
-                      icon: Icon(Icons.account_circle),
-                      label: 'Account',
-                    ),
-                  ],
-                );
-  }
-}
+
+//BOTTOM NAVIGATION BAR WITH FLUTTER ICONS
+// class BottomNavigator extends StatefulWidget {
+//   const BottomNavigator({super.key});
+  
+//   @override
+//   State<BottomNavigator> createState() => _BottomNavigatorState();
+// }
+
+// class _BottomNavigatorState extends State<BottomNavigator> {
+//     int _selectedIndex = 0;
+//     Color pumpkin = Color(0xFFFC8019);
+//   void _onItemTapped(int index) {
+//     setState(() {
+//       _selectedIndex = index;
+//     });
+//   }
+//   @override
+//   Widget build(BuildContext context) {
+//     return BottomNavigationBar(
+//                   type: BottomNavigationBarType.fixed,
+//                   currentIndex: _selectedIndex,
+//                   onTap: _onItemTapped,
+//                   selectedItemColor:pumpkin,
+//                   unselectedItemColor: Colors.grey,
+//                   selectedIconTheme: IconThemeData(
+//                     size: 50,
+//                     grade: 34,
+//                   ),
+//                   items: const <BottomNavigationBarItem>[
+//                     BottomNavigationBarItem(
+//                       icon: Icon(Icons.home),
+//                       label: 'Home',
+//                     ),
+//                     BottomNavigationBarItem(
+//                       icon: Icon(Icons.card_giftcard),
+//                       label: 'Rewards',
+//                     ),
+//                     BottomNavigationBarItem(
+//                       icon: Icon(Icons.qr_code),
+//                       label: 'Scan',
+//                     ),
+//                     BottomNavigationBarItem(
+//                       icon: Icon(Icons.timeline),
+//                       label: 'Activity',
+//                     ),
+//                     BottomNavigationBarItem(
+//                       icon: Icon(Icons.account_circle),
+//                       label: 'Account',
+//                     ),
+//                   ],
+//                 );
+//   }
+// }
 
 
