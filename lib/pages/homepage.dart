@@ -3,7 +3,7 @@ import 'package:beebag/pages/edit_profile.dart';
 import 'package:beebag/pages/reward_page.dart';
 import 'package:beebag/pages/signup_page.dart';
 import 'package:flutter/material.dart';
-
+import 'package:beebag/components/bottom_nav.dart';
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key});
 
@@ -13,20 +13,15 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
     var _selectedIndex = 0 ;
-    Color pumpkin = Color(0xFFFC8019); 
+    Color pumpkin = const Color(0xFFFC8019); 
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-           bottomNavigationBar: BottomNavBar(
-        onItemSelected: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        selectedIndex: _selectedIndex,
-      ),
+          
+
+
         floatingActionButton: FloatingActionButton(onPressed:  () {
                               Navigator.push(
                                   context,
@@ -51,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: [
                         Container(
                           padding:
-                              EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                              const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                           height: 150,
                           child: Image.asset(
                             'assets/images/man.png',
@@ -60,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               'John Doe',
                               style: TextStyle(
                                   fontSize: 25, fontWeight: FontWeight.w700),
@@ -68,12 +63,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             Row(
                               children: [
                                 Container(
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       vertical: 5, horizontal: 10),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(12),
                                       color: Colors.amber[600]),
-                                  child: Row(
+                                  child: const Row(
                                     children: [
                                       Icon(Icons.diamond),
                                       Text(
@@ -85,16 +80,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ],
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Container(
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       vertical: 5, horizontal: 10),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(12),
                                       color: Colors.amber[600]),
-                                  child: Row(
+                                  child: const Row(
                                     children: [
                                       Icon(Icons.shopping_bag_rounded),
                                       Text(
@@ -111,8 +106,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                         IconButton(
-                          padding: EdgeInsets.only(left: 30),
-                          icon: Icon(Icons.edit_document),
+                          padding: const EdgeInsets.only(left: 30),
+                          icon: const Icon(Icons.edit_document),
                           onPressed: () {
                             Navigator.push(
                                 context,
@@ -128,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         horizontal: 20,
                       ),
                       child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                         decoration: BoxDecoration(
                           color: pumpkin,
                           borderRadius: BorderRadius.circular(12),
@@ -136,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               'My Vouchers',
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w500),
@@ -146,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: 60,
                               alignment: Alignment.centerRight,
                               padding:
-                                  EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                  const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                               child: Container(
                                 child: Image.asset('assets/images/gift.png'),
                               ),
@@ -161,7 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         horizontal: 20,
                       ),
                       child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                         decoration: BoxDecoration(
                           color: pumpkin,
                           borderRadius: BorderRadius.circular(12),
@@ -169,7 +164,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               'How Does BeeBag Work?',
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w700),
@@ -179,7 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: 60,
                               alignment: Alignment.centerRight,
                               padding:
-                                  EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                  const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                               child: Container(
                                 child: Image.asset('assets/images/gift.png'),
                               ),
@@ -188,11 +183,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 25),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 25),
                       child: Text(
                         'Activities',
                         textAlign: TextAlign.start,
@@ -204,18 +199,18 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+                      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 25),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                         color: Colors.amber[100],
                         border: Border.all(
-                          color: Color.fromARGB(31, 100, 103, 103),
+                          color: const Color.fromARGB(31, 100, 103, 103),
                           style: BorderStyle.solid,
                         ),
                       ),
                       child: Column(
                         children: [
-                          ListTile(
+                          const ListTile(
                              dense: true,
                             leading: Icon(
                               Icons.store_mall_directory_rounded,
@@ -230,7 +225,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             indent: 20,
                             endIndent: 20,
                           ),
-                          ListTile(
+                          const ListTile(
                              dense: true,
                             leading: Icon(  
                               Icons.store_mall_directory_rounded,
@@ -245,7 +240,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             indent: 20,
                             endIndent: 20,
                           ),
-                          ListTile(
+                          const ListTile(
                             dense: true,
                             leading: Icon(
                               Icons.store_mall_directory_rounded,
@@ -257,11 +252,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left:25),
+                    const Padding(
+                      padding: EdgeInsets.only(left:25),
                       child: Text(
                         'Others',
                         textAlign: TextAlign.start,
@@ -273,18 +268,18 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+                      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 25),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                         color: Colors.amber[100],
                         border: Border.all(
-                          color: Color.fromARGB(31, 100, 103, 103),
+                          color: const Color.fromARGB(31, 100, 103, 103),
                           style: BorderStyle.solid,
                         ),
                       ),
                       child: Column(
                         children: [
-                          ListTile(
+                          const ListTile(
                             leading: Icon(
                               Icons.store_mall_directory_rounded,
                               color: Colors.black,
@@ -298,7 +293,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             indent: 20,
                             endIndent: 20,
                           ),
-                          ListTile(
+                          const ListTile(
                             leading: Icon(
                               Icons.store_mall_directory_rounded,
                               color: Colors.black,

@@ -1,6 +1,6 @@
 import 'package:beebag/components/voucher_card.dart';
 import 'package:flutter/material.dart';
-
+import 'package:beebag/components/bottom_nav.dart';
 class RewardPage extends StatefulWidget {
   RewardPage({super.key});
 
@@ -10,77 +10,77 @@ class RewardPage extends StatefulWidget {
 
 class _RewardPageState extends State<RewardPage> {
   final List<VoucherCard> voucherItems = [
-    VoucherCard(
+    const VoucherCard(
       logoUrl: "assets/images/green_mart_logo.jpg",
       minSpend: "RM50",
       price: "3,800",
       validity: "31 Dec 2022",
       voucherName: "Rm3 Voucher by Red Mart",
     ),
-    VoucherCard(
+    const VoucherCard(
       logoUrl: "assets/images/green_mart_logo.jpg",
       minSpend: "RM50",
       price: "3,800",
       validity: "3 feb 2022",
       voucherName: "Rm3 Voucher by yellow Mart",
     ),
-    VoucherCard(
+    const VoucherCard(
       logoUrl: "assets/images/green_mart_logo.jpg",
       minSpend: "RM50",
       price: "3,800",
       validity: "31 Dec 2022",
       voucherName: "Rm3 Voucher by D Mart",
     ),
-    VoucherCard(
+    const VoucherCard(
       logoUrl: "assets/images/green_mart_logo.jpg",
       minSpend: "RM50",
       price: "3,800",
       validity: "31 Dec 2022",
       voucherName: "Rm3 Voucher by Red Mart",
     ),
-    VoucherCard(
+    const VoucherCard(
       logoUrl: "assets/images/green_mart_logo.jpg",
       minSpend: "RM50",
       price: "3,800",
       validity: "31 Dec 2022",
       voucherName: "Rm3 Voucher by Red Mart",
     ),
-    VoucherCard(
+    const VoucherCard(
       logoUrl: "assets/images/green_mart_logo.jpg",
       minSpend: "RM50",
       price: "3,800",
       validity: "31 Dec 2022",
       voucherName: "Rm3 Voucher by Red Mart",
     ),
-    VoucherCard(
+    const VoucherCard(
       logoUrl: "assets/images/green_mart_logo.jpg",
       minSpend: "RM50",
       price: "3,800",
       validity: "31 Dec 2022",
       voucherName: "Rm3 Voucher by Red Mart",
     ),
-    VoucherCard(
+    const VoucherCard(
       logoUrl: "assets/images/green_mart_logo.jpg",
       minSpend: "RM50",
       price: "3,800",
       validity: "31 Dec 2022",
       voucherName: "Rm3 Voucher by Red Mart",
     ),
-    VoucherCard(
+    const VoucherCard(
       logoUrl: "assets/images/green_mart_logo.jpg",
       minSpend: "RM50",
       price: "3,800",
       validity: "31 Dec 2022",
       voucherName: "Rm3 Voucher by Red Mart",
     ),
-    VoucherCard(
+    const VoucherCard(
       logoUrl: "assets/images/green_mart_logo.jpg",
       minSpend: "RM50",
       price: "3,800",
       validity: "31 Dec 2022",
       voucherName: "Rm3 Voucher by Red Mart",
     ),
-    VoucherCard(
+    const VoucherCard(
       logoUrl: "assets/images/green_mart_logo.jpg",
       minSpend: "RM50",
       price: "3,800",
@@ -115,16 +115,16 @@ class _RewardPageState extends State<RewardPage> {
                       alignment: Alignment.center,
                       width: 100,
                       height: 40,
-                      padding: EdgeInsets.all(2),
+                      padding: const EdgeInsets.all(2),
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 239, 218, 169),
+                          color: const Color.fromARGB(255, 239, 218, 169),
                           borderRadius: BorderRadius.circular(10)),
                       child: Row(children: [
                         Image.asset(
                           "assets/images/Bee Points Icon.png",
                           height: 60,
                         ),
-                        Text(
+                        const Text(
                           " 2,058",
                           style: TextStyle(
                               color: Colors.black,
@@ -139,8 +139,8 @@ class _RewardPageState extends State<RewardPage> {
             ),
             Container(
               height: 50,
-              padding: EdgeInsets.only(bottom: 10, top: 5, left: 30, right: 30),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.only(bottom: 10, top: 5, left: 30, right: 30),
+              decoration: const BoxDecoration(
                   border: Border(
                       bottom: BorderSide(
                           color: Color.fromARGB(255, 226, 222, 222),
@@ -150,21 +150,21 @@ class _RewardPageState extends State<RewardPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    child: Text("All",
+                    child: const Text("All",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.w400)),
                   ),
                   
                   Center(
                     child: Container(
-                      color: Color.fromRGBO(225, 228, 223, 1),
+                      color: const Color.fromRGBO(225, 228, 223, 1),
                       width: 2,
                       height: 100,
                     ),
                   ),
 
                   //divider
-                  Text(
+                  const Text(
                     "Nearby",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400,color: Colors.grey),
                   )
@@ -174,7 +174,7 @@ class _RewardPageState extends State<RewardPage> {
             Container(
               height: 600,
               child: ListView.builder(
-                  padding: EdgeInsets.symmetric(horizontal: 0),
+                  padding: const EdgeInsets.symmetric(horizontal: 0),
                   itemCount: voucherItems.length,
                   scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {
@@ -189,8 +189,14 @@ class _RewardPageState extends State<RewardPage> {
                       );
                     }
                   }),
-            )
+            ),
+            
+          
           ])),
+          bottomNavigationBar:const Align(
+            alignment: Alignment.bottomCenter,
+            child: BottomNav()
+            ) ,
     );
   }
 }
