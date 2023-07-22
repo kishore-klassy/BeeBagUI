@@ -1,4 +1,5 @@
 import 'package:beebag/pages/edit_profile.dart';
+import 'package:beebag/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -16,6 +17,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(onPressed:  () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SignUpPage()));
+                            },),
         body: Stack(
           children:[ SingleChildScrollView(
             padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
