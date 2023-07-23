@@ -204,7 +204,7 @@ class _RewardPageState extends State<RewardPage> {
               child: Stack(
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50),bottomRight:Radius.circular(50)),
                     child: Image.asset(
                       "assets/images/Verticle Yellow Hexagon BG.png",
                       height: 100,
