@@ -19,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          
+          bottomNavigationBar: BottomNav(currentIndex: 0,),
 
 
         floatingActionButton: FloatingActionButton(onPressed:  () {

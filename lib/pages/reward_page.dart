@@ -190,13 +190,19 @@ class _RewardPageState extends State<RewardPage> {
                     }
                   }),
             ),
-            
+           
           
           ])),
-          bottomNavigationBar:const Align(
-            alignment: Alignment.bottomCenter,
-            child: BottomNav()
-            ) ,
+          // bottomNavigationBar:const Align(
+          //   alignment: Alignment.bottomCenter,
+          //   child: BottomNav()
+          //   ) ,
+  bottomNavigationBar:  BottomNav(currentIndex: 3,),
+
+
+
+
+
     );
   }
 }
