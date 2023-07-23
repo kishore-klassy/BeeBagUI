@@ -20,14 +20,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
       child: Scaffold(
           bottomNavigationBar: BottomNav(currentIndex: 0,),
-
-
-        floatingActionButton: FloatingActionButton(onPressed:  () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => RewardPage()));
-                            },),
         body: Stack(
           children:[ SingleChildScrollView(
             padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
