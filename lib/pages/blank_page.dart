@@ -1,4 +1,5 @@
 import 'package:beebag/components/bottom_nav.dart';
+import 'package:beebag/components/cardshimmer.dart';
 import 'package:flutter/material.dart';
 
 class BlankPage extends StatefulWidget {
@@ -13,7 +14,8 @@ class _BlankPageState extends State<BlankPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.greenAccent,
+         margin: EdgeInsets.symmetric(vertical: 30,horizontal: 10),
+         child: VoucherCardShimmer(),
       ),
       bottomNavigationBar: BottomNav(currentIndex: 1,),
     );

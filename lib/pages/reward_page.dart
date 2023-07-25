@@ -1,6 +1,8 @@
 import 'package:beebag/components/voucher_card.dart';
 import 'package:flutter/material.dart';
 import 'package:beebag/components/bottom_nav.dart';
+import 'package:beebag/components/item_data.dart';
+
 class RewardPage extends StatefulWidget {
   RewardPage({super.key});
 
@@ -9,191 +11,17 @@ class RewardPage extends StatefulWidget {
 }
 
 class _RewardPageState extends State<RewardPage> {
-  final List<VoucherCard> voucherItems = [
-    const VoucherCard(
-      logoUrl: "assets/images/green_mart_logo.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Green Mart",
-    ),
-    const VoucherCard(
-      logoUrl: "assets/images/happyshop.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "3 feb 2022",
-      voucherName: "RM3 Voucher by Happy Mart",
-    ),
-    const VoucherCard(
-      logoUrl: "assets/images/cartify.jpeg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Cartify",
-    ),
-    const VoucherCard(
-       logoUrl: "assets/images/fresh.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Red Mart",
-    ),
-    const VoucherCard(
-      logoUrl: "assets/images/green_mart_logo.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Red Mart",
-    ),
+  bool isLoading = false;
+
+  Future loadData() async {
+    setState(() => true);
+
+    await Future.delayed(Duration(seconds: 2),(){});
+    voucherItems;
     
-    const VoucherCard(
-      logoUrl: "assets/images/green_mart_logo.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Red Mart",
-    ), const VoucherCard(
-      logoUrl: "assets/images/green_mart_logo.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Green Mart",
-    ),
-    const VoucherCard(
-      logoUrl: "assets/images/happyshop.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "3 feb 2022",
-      voucherName: "RM3 Voucher by Happy Mart",
-    ),
-    const VoucherCard(
-      logoUrl: "assets/images/cartify.jpeg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Cartify",
-    ),
-    const VoucherCard(
-       logoUrl: "assets/images/fresh.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Red Mart",
-    ),
-    const VoucherCard(
-      logoUrl: "assets/images/green_mart_logo.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Red Mart",
-    ),
-    
-    const VoucherCard(
-      logoUrl: "assets/images/green_mart_logo.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Red Mart",
-    ),
-     const VoucherCard(
-      logoUrl: "assets/images/green_mart_logo.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Green Mart",
-    ),
-    const VoucherCard(
-      logoUrl: "assets/images/happyshop.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "3 feb 2022",
-      voucherName: "RM3 Voucher by Happy Mart",
-    ),
-    const VoucherCard(
-      logoUrl: "assets/images/cartify.jpeg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Cartify",
-    ),
-    const VoucherCard(
-       logoUrl: "assets/images/fresh.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Red Mart",
-    ), const VoucherCard(
-      logoUrl: "assets/images/green_mart_logo.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Green Mart",
-    ),
-    const VoucherCard(
-      logoUrl: "assets/images/happyshop.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "3 feb 2022",
-      voucherName: "RM3 Voucher by Happy Mart",
-    ),
-    const VoucherCard(
-      logoUrl: "assets/images/cartify.jpeg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Cartify",
-    ),
-    const VoucherCard(
-       logoUrl: "assets/images/fresh.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Red Mart",
-    ),
-    const VoucherCard(
-      logoUrl: "assets/images/green_mart_logo.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Green Mart",
-    ),
-    const VoucherCard(
-      logoUrl: "assets/images/happyshop.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "3 feb 2022",
-      voucherName: "RM3 Voucher by Happy Mart",
-    ),
-    const VoucherCard(
-      logoUrl: "assets/images/cartify.jpeg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Cartify",
-    ),
-    const VoucherCard(
-       logoUrl: "assets/images/fresh.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Red Mart",
-    ),
-    const VoucherCard(
-      logoUrl: "assets/images/green_mart_logo.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Red Mart",
-    ),
-    
-    const VoucherCard(
-      logoUrl: "assets/images/green_mart_logo.jpg",
-      minSpend: "RM50",
-      price: "3,800",
-      validity: "31 Dec 2022",
-      voucherName: "RM3 Voucher by Red Mart",
-    ),
-  ];
+    setState(() => false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -204,14 +32,15 @@ class _RewardPageState extends State<RewardPage> {
               child: Stack(
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50),bottomRight:Radius.circular(50)),
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(50),
+                        bottomRight: Radius.circular(50)),
                     child: Image.asset(
                       "assets/images/Verticle Yellow Hexagon BG.png",
                       height: 100,
                       width: double.infinity,
                       fit: BoxFit.cover,
                       scale: double.maxFinite,
-                      
                     ),
                   ),
                   Positioned(
@@ -245,7 +74,8 @@ class _RewardPageState extends State<RewardPage> {
             ),
             Container(
               height: 50,
-              padding: const EdgeInsets.only(bottom: 10, top: 5, left: 30, right: 30),
+              padding: const EdgeInsets.only(
+                  bottom: 10, top: 5, left: 30, right: 30),
               decoration: const BoxDecoration(
                   border: Border(
                       bottom: BorderSide(
@@ -260,7 +90,7 @@ class _RewardPageState extends State<RewardPage> {
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.w400)),
                   ),
-                  
+
                   Center(
                     child: Container(
                       color: const Color.fromRGBO(225, 228, 223, 1),
@@ -272,7 +102,10 @@ class _RewardPageState extends State<RewardPage> {
                   //divider
                   const Text(
                     "Nearby",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400,color: Colors.grey),
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey),
                   )
                 ],
               ),
@@ -296,19 +129,14 @@ class _RewardPageState extends State<RewardPage> {
                     }
                   }),
             ),
-           
-          
           ])),
-          // bottomNavigationBar:const Align(
-          //   alignment: Alignment.bottomCenter,
-          //   child: BottomNav()
-          //   ) ,
-  bottomNavigationBar:  BottomNav(currentIndex: 3,),
-
-
-
-
-
+      // bottomNavigationBar:const Align(
+      //   alignment: Alignment.bottomCenter,
+      //   child: BottomNav()
+      //   ) ,
+      bottomNavigationBar: BottomNav(
+        currentIndex: 3,
+      ),
     );
   }
 }

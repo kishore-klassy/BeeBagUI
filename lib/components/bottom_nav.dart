@@ -1,3 +1,4 @@
+import 'package:beebag/components/cardshimmer.dart';
 import 'package:beebag/pages/blank_page.dart';
 import 'package:beebag/pages/homepage.dart';
 import 'package:beebag/pages/reward_page.dart';
@@ -36,7 +37,7 @@ class _BottomNavState extends State<BottomNav> {
         case 2:
          _selectedIndex = index;
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => BlankPage()));
+              context, MaterialPageRoute(builder: (context) => VoucherCardShimmer()));
         case 3:
          _selectedIndex = index;
           Navigator.push(
