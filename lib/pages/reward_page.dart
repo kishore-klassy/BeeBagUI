@@ -3,6 +3,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:beebag/components/item_data.dart';
 import 'package:beebag/components/voucher_card.dart';
 import 'package:beebag/components/cardshimmer.dart';
+import 'package:beebag/components/bottom_nav.dart';
 class RewardPage extends StatefulWidget {
   RewardPage({Key? key}) : super(key: key);
 
@@ -14,7 +15,7 @@ class _RewardPageState extends State<RewardPage> {
   bool isLoading = true; // Set to true initially to show the shimmer effect
 
   Future<void> loadData() async {
-    await Future.delayed(Duration(seconds: 3)); // Simulating data loading delay
+    await Future.delayed(Duration(seconds: 2)); // Simulating data loading delay
     setState(() => isLoading = false);
   }
 
@@ -29,7 +30,7 @@ class _RewardPageState extends State<RewardPage> {
     final VoucherCardShimmer voucherCardShimmer = VoucherCardShimmer();
 
     return Scaffold(
-   
+     bottomNavigationBar:  BottomNav(currentIndex: 3,),
       body: Container(
         color: Colors.white,
         child: Column(
