@@ -13,10 +13,7 @@ class _BlankPageState extends State<BlankPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-         margin: EdgeInsets.symmetric(vertical: 30,horizontal: 10),
-         child: VoucherCardShimmer(),
-      ),
+     
       bottomNavigationBar: BottomNav(currentIndex: 1,),
     );
   }
