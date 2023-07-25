@@ -1,33 +1,39 @@
-import 'package:beebag/components/voucher_card.dart';
 import 'package:flutter/material.dart';
-import 'package:beebag/components/bottom_nav.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:beebag/components/item_data.dart';
-
+import 'package:beebag/components/voucher_card.dart';
+import 'package:beebag/components/cardshimmer.dart';
 class RewardPage extends StatefulWidget {
-  RewardPage({super.key});
+  RewardPage({Key? key}) : super(key: key);
 
   @override
   State<RewardPage> createState() => _RewardPageState();
 }
 
 class _RewardPageState extends State<RewardPage> {
-  bool isLoading = false;
+  bool isLoading = true; // Set to true initially to show the shimmer effect
 
-  Future loadData() async {
-    setState(() => true);
+  Future<void> loadData() async {
+    await Future.delayed(Duration(seconds: 3)); // Simulating data loading delay
+    setState(() => isLoading = false);
+  }
 
-    await Future.delayed(Duration(seconds: 2),(){});
-    voucherItems;
-    
-    setState(() => false);
+  @override
+  void initState() {
+    super.initState();
+    loadData();
   }
 
   @override
   Widget build(BuildContext context) {
+    final VoucherCardShimmer voucherCardShimmer = VoucherCardShimmer();
+
     return Scaffold(
+   
       body: Container(
-          color: Colors.white,
-          child: Column(children: [
+        color: Colors.white,
+        child: Column(
+          children: [
             Container(
               child: Stack(
                 children: [
@@ -110,33 +116,32 @@ class _RewardPageState extends State<RewardPage> {
                 ],
               ),
             ),
-            Container(
-              height: 600,
-              child: ListView.builder(
-                  padding: const EdgeInsets.symmetric(horizontal: 0),
-                  itemCount: voucherItems.length,
-                  scrollDirection: Axis.vertical,
-                  itemBuilder: (context, index) {
-                    for (int i = 0; i <= voucherItems.length; i++) {
-                      var currentItem = voucherItems[index];
-                      return VoucherCard(
-                        logoUrl: "${currentItem.logoUrl}",
-                        minSpend: "${currentItem.minSpend}",
-                        price: "${currentItem.price}",
-                        validity: "${currentItem.validity}",
-                        voucherName: "${currentItem.voucherName}",
-                      );
-                    }
-                  }),
+
+            Expanded(
+              child: isLoading
+                  ? voucherCardShimmer // Show shimmer effect while loading
+                  : ListView.builder(
+                      padding: const EdgeInsets.symmetric(horizontal: 0),
+                      itemCount: voucherItems.length, // Replace with your actual data
+                      itemBuilder: (context, index) {
+                        var currentItem = voucherItems[index]; // Replace with your actual data
+                        return VoucherCard(
+                          // Replace with your actual VoucherCard widget
+                          logoUrl: "${currentItem.logoUrl}",
+                          minSpend: "${currentItem.minSpend}",
+                          price: "${currentItem.price}",
+                          validity: "${currentItem.validity}",
+                          voucherName: "${currentItem.voucherName}",
+                        );
+                      },
+                    ),
             ),
-          ])),
-      // bottomNavigationBar:const Align(
-      //   alignment: Alignment.bottomCenter,
-      //   child: BottomNav()
-      //   ) ,
-      bottomNavigationBar: BottomNav(
-        currentIndex: 3,
+          ],
+        ),
       ),
     );
   }
+
+ 
 }
+
