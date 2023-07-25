@@ -1,4 +1,3 @@
-import 'package:beebag/components/bottom_navbar.dart';
 import 'package:beebag/pages/edit_profile.dart';
 import 'package:beebag/pages/reward_page.dart';
 import 'package:beebag/pages/signup_page.dart';
