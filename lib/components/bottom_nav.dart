@@ -37,7 +37,7 @@ class _BottomNavState extends State<BottomNav> {
         case 2:
          _selectedIndex = index;
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => VoucherCardShimmer()));
+              context, MaterialPageRoute(builder: (context) => BlankPage()));
         case 3:
          _selectedIndex = index;
           Navigator.push(
