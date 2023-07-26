@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                           height: 150,
                           child: Image.asset(
-                            'assets/images/man.png',
+                            'assets/images/Male Portrait.png',
                           ),
                         ),
                         Column(
@@ -58,10 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                       vertical: 5, horizontal: 10),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(12),
-                                      color: Colors.amber[600]),
-                                  child: const Row(
+                                      color: Color.fromRGBO(253, 232, 191,1),),
+                                  child: Row(
                                     children: [
-                                      Icon(Icons.diamond),
+                                      Image.asset("assets/images/Bee Points Icon.png",width: 30,),
                                       Text(
                                         '2,058',
                                         style: TextStyle(
@@ -79,10 +79,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                       vertical: 5, horizontal: 10),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(12),
-                                      color: Colors.amber[600]),
-                                  child: const Row(
+                                      color:  Color.fromRGBO(253, 232, 191,1),),
+                                  child: Row(
                                     children: [
-                                      Icon(Icons.shopping_bag_rounded),
+                                      Image.asset("assets/images/Scans Icon.png",width: 30,),
                                       Text(
                                         '124',
                                         style: TextStyle(
@@ -96,15 +96,18 @@ class _MyHomePageState extends State<MyHomePage> {
                             )
                           ],
                         ),
-                        IconButton(
+                        Padding(
                           padding: const EdgeInsets.only(left: 30),
-                          icon: const Icon(Icons.edit_document),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => EditProfile()));
-                          },
+                          child: GestureDetector(
+                            
+                           child: Image.asset("assets/images/Edit Profile Button.png",width: 40,),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => EditProfile()));
+                            },
+                          ),
                         ),
                       ],
                     ),
@@ -113,66 +116,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         vertical: 10,
                         horizontal: 20,
                       ),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                        decoration: BoxDecoration(
-                          color: pumpkin,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              'My Vouchers',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w500),
-                            ),
-                            Container(
-                              color: Colors.white,
-                              height: 60,
-                              alignment: Alignment.centerRight,
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                              child: Container(
-                                child: Image.asset('assets/images/gift.png'),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      child: Image.asset("assets/images/My Vouchers Button.png")
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
                         vertical: 10,
                         horizontal: 20,
                       ),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-                        decoration: BoxDecoration(
-                          color: pumpkin,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              'How Does BeeBag Work?',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w700),
-                            ),
-                            Container(
-                              color: Colors.white,
-                              height: 60,
-                              alignment: Alignment.centerRight,
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                              child: Container(
-                                child: Image.asset('assets/images/gift.png'),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      child: Image.asset("assets/images/Beebag FAQ Button.png",)
                     ),
                     const SizedBox(
                       height: 5,
@@ -193,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 25),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.amber[100],
+                        color: Colors.white,
                         border: Border.all(
                           color: const Color.fromARGB(31, 100, 103, 103),
                           style: BorderStyle.solid,
@@ -201,12 +152,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       child: Column(
                         children: [
-                          const ListTile(
+                          ListTile(
                              dense: true,
-                            leading: Icon(
-                              Icons.store_mall_directory_rounded,
-                              color: Colors.black,
-                            ),
+                            leading: Image.asset("assets/images/Last Visited Icon.png",width: 30,),
                             title: Text('Last Visited',style: TextStyle(fontSize: 16),),
                             trailing: Icon(Icons.navigate_next_rounded),
                           ),
@@ -216,12 +164,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             indent: 20,
                             endIndent: 20,
                           ),
-                          const ListTile(
+                          ListTile(
                              dense: true,
-                            leading: Icon(  
-                              Icons.store_mall_directory_rounded,
-                              color: Colors.black,
-                            ),
+                            leading: Image.asset("assets/images/Bee Point History Icon.png",width: 30,),
                             title: Text('Bee Point History',style: TextStyle(fontSize: 16),),
                             trailing: Icon(Icons.navigate_next_rounded),
                           ),
@@ -231,12 +176,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             indent: 20,
                             endIndent: 20,
                           ),
-                          const ListTile(
+                         ListTile(
                             dense: true,
-                            leading: Icon(
-                              Icons.store_mall_directory_rounded,
-                              color: Colors.black,
-                            ),
+                            leading: Image.asset("assets/images/Voucher History Icon.png",width: 30,),
                             title: Text('Voucher History',style: TextStyle(fontSize: 16),),
                             trailing: Icon(Icons.navigate_next_rounded),
                           ),
@@ -262,7 +204,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 25),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.amber[100],
+                        color: Colors.white,
                         border: Border.all(
                           color: const Color.fromARGB(31, 100, 103, 103),
                           style: BorderStyle.solid,
@@ -272,7 +214,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: [
                           const ListTile(
                             leading: Icon(
-                              Icons.store_mall_directory_rounded,
+                              Icons.feedback,
                               color: Colors.black,
                             ),
                             title: Text('Feed Back',style: TextStyle(fontSize: 16),),
@@ -284,11 +226,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             indent: 20,
                             endIndent: 20,
                           ),
-                          const ListTile(
-                            leading: Icon(
-                              Icons.store_mall_directory_rounded,
-                              color: Colors.black,
-                            ),
+                          ListTile(
+                            leading: Image.asset("assets/images/Logout Icon.png",width: 30,),
                             title: Text('Log Out',style: TextStyle(fontSize: 16),),
                             trailing: Icon(Icons.navigate_next_rounded),
                           ),
